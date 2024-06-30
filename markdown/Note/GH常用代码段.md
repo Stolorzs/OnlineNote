@@ -29,6 +29,22 @@ private void RunScript(Brep brep, ref object a)
 }
 ```
 ## 取窄边面
+```c#
+    private void RunScript(Brep brep, ref object a)
+    {
+        // Write your logic here
+        List<Brep> selectBrep = new List<Brep>();
+        foreach (BrepEdge edge in brep.Edges)
+        {
+            if (edge.GetLength() <= 100)
+            {
+                selectBrep.Add(brep);
+                break;
+            }
+        }
+        a = selectBrep;
+    }
+```
 ## 取最底线
 ```c#
 private void RunScript(Brep brep, ref object a)
@@ -53,7 +69,7 @@ private void RunScript(Brep brep, ref object a)
     a = selectCurve;
 }
 ```
-## 取面的工作平面
+## 取垂面的工作平面
 ```c#
 private void RunScript(Surface surface, ref object a)
 {
@@ -71,7 +87,24 @@ private void RunScript(Surface surface, ref object a)
     a = plane;
 }
 ```
-## 获取直线内固定的线条
+## 取垂直线
+```c#
+private void RunScript(Brep brep, ref object a)
+{
+    // Write your logic here
+    List<Brep> selectBrep = new List<Brep>();
+    foreach (BrepEdge edge in brep.Edges)
+    {
+        if (edge.GetLength() <= 100)
+        {
+            selectBrep.Add(brep);
+            break;
+        }
+    }
+    a = selectBrep;
+}
+```
+## 获取直线内指定边距线条
 ```c#
 private void RunScript(Line line, double x, double y, ref object a)
 {
