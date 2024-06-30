@@ -14,3 +14,29 @@ private void RunScript(Brep brep, ref object a)
     a = edges;
 }
 ```
+## 获取BrepFaceList
+```c#
+private void RunScript(Brep brep, ref object a)
+{
+    // Write your logic here
+    List<Surface> faces = new List<Surface>();
+    foreach (BrepFace face in brep.Faces)
+    {
+        faces.Add(face);
+    }
+    
+    a = faces;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
